@@ -33,6 +33,16 @@
     links.forEach(function (el) {
       var key = el.getAttribute("data-wa") || "geral";
       el.setAttribute("href", buildWhatsAppLink(key));
+
+      // Dispara a conversão do Google Ads no clique.
+      // Os botões abrem em nova aba (target="_blank"), então NÃO usamos o
+      // redirecionamento da função (chamada sem url): a nova aba abre
+      // normalmente e a conversão é registrada em paralelo.
+      el.addEventListener("click", function () {
+        if (typeof gtag_report_conversion === "function") {
+          gtag_report_conversion();
+        }
+      });
     });
   }
 
