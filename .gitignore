@@ -1,0 +1,7 @@
+# Sistema
+.DS_Store
+
+# Arquivos originais pesados das fotos (HEIC/CR2 RAW e JPG originais).
+# O site usa apenas as versões otimizadas em images/web/.
+images/*
+!images/web/
